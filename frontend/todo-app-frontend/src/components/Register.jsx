@@ -18,7 +18,7 @@ const Register = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false); 
   const navigate = useNavigate();
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -26,7 +26,8 @@ const Register = () => {
     setLoading(true); 
 
     try {
-      const response = await axios.post(`${API_URL}/auth/register`, {
+      console.log(API_URL)
+      const response = await axios.post(`${API_URL}/api/auth/register`, {
         email,
         password,
       });

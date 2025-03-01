@@ -10,13 +10,13 @@ const TaskList = ({ refreshTaskList }) => {
     const [editTask, setEditTask] = useState(null);
     const [loading, setLoading] = useState(false);
     const [deletingTaskId, setDeletingTaskId] = useState(null); 
-    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+    const API_URL = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
         const fetchTasks = async () => {
             setLoading(true);
             try {
-                const response = await axios.get(`${API_URL}/tasks`, {
+                const response = await axios.get(`${API_URL}/api/tasks`, {
                     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
                 });
                 setTasks(response.data);
@@ -33,7 +33,7 @@ const TaskList = ({ refreshTaskList }) => {
     const deleteTask = async (taskId) => {
         setDeletingTaskId(taskId);
         try {
-            await axios.delete(`${API_URL}/tasks/${taskId}`, {
+            await axios.delete(`${API_URL}/api/tasks/${taskId}`, {
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             });
             setTasks((prevTasks) => prevTasks.filter((task) => task._id !== taskId));
@@ -47,7 +47,7 @@ const TaskList = ({ refreshTaskList }) => {
     const handleSaveEdit = async (updatedTask) => {
         try {
             const response = await axios.put(
-                `${API_URL}/tasks/${updatedTask._id}`,
+                `${API_URL}/api/tasks/${updatedTask._id}`,
                 updatedTask,
                 {
                     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },

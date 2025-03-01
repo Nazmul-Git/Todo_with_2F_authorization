@@ -1,4 +1,4 @@
 backend/node_modules
-frontend/node_modules
+frontend/todo-app-frontend/node_modules
 backend/.env
-frontend/.env
+frontend/todo-app-frontend/.env

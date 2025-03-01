@@ -12,14 +12,14 @@ const Verify2FA = () => {
     const { email } = location.state || {};
 
     const handleVerify = async () => {
-        const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+        const API_URL = import.meta.env.VITE_API_URL;
         setLoading(true);
         setError('');
 
         try {
-            console.log(email, token)
-            console.log(typeof(token))
-            const response = await axios.post(`${API_URL}/auth/verify-2fa`, { email, token });
+            // console.log(email, token)
+            // console.log(API_URL)
+            const response = await axios.post(`${API_URL}/api/auth/verify`, { email, token });
             console.log(response.data);
             localStorage.setItem('token', response.data.token);
             navigate('/dashboard');

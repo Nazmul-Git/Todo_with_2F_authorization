@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/verify-2fa" element={<Verify2FA />} />
+        <Route path="/verify" element={<Verify2FA />} />
         <Route
           path="/dashboard"
           element={

@@ -37,7 +37,6 @@ const EditTaskDialog = ({ open, task, onClose, onSave }) => {
             const today = new Date();
             today.setHours(0, 0, 0, 0);
 
-            // If selected date is in the past, auto-set to today
             setFormData({ ...formData, dueDate: selectedDate < today ? today.toISOString().split("T")[0] : value });
         } else {
             setFormData({ ...formData, [name]: value.trim() });

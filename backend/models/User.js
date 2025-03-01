@@ -4,7 +4,6 @@ const bcrypt = require('bcryptjs');
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  googleId: { type: String },
   twoFactorSecret: { type: String },
   isGoogleConnected: { type: Boolean, default: false },
 });
