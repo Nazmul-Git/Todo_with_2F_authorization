@@ -2,3 +2,5 @@ backend/node_modules
 frontend/todo-app-frontend/node_modules
 backend/.env
 frontend/todo-app-frontend/.env
+
+vercel.json
