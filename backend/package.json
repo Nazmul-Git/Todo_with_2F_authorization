@@ -5,8 +5,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build": "echo 'No build step required for Node.js'",
-    "vercel-build": "npm run build && npm run start"
+    "vercel-build": "echo 'No build step required for backend'"
   },
   "keywords": [],
   "author": "",
